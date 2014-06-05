@@ -28,6 +28,7 @@ $env = $app->detectEnvironment(array(
 
 	'local' => array('FIX-01-W8'),
 	'win8' => array('PCP-Kbiyo'),
+	'vpsovh' => array('vps71542'),
 
 ));
 
