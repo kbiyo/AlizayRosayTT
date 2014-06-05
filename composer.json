@@ -5,9 +5,6 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"barryvdh/laravel-debugbar": "dev-master",
-		"onigoetz/profiler": "dev-master",
-		"cboden/Ratchet"    : "0.3.*"
 	},
 	"autoload": {
 		"classmap": [
