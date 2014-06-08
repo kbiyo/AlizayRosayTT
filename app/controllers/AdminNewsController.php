@@ -6,7 +6,7 @@ class AdminNewsController extends BaseController {
 
     public function Home() {
     	$news = News::all();
-    	$this->layout->coucou = View::make('news.admin.home')->with('news', $news);
+    	$this->layout->content = View::make('news.admin.home')->with('news', $news);
     }
 
     public function AddNews() {

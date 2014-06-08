@@ -2,18 +2,7 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+	protected $layout = 'layout';
 
 	public function home()
 	{
@@ -21,7 +10,8 @@ class HomeController extends BaseController {
 		$champs = Championnat::all();
 		$news = News::all();
 
-		echo 'HOME!';
+		$this->layout->title = 'HomeController@Home';
+		$this->layout->content = View::make('home/home')->with('news', $news);
 	}
 
 }

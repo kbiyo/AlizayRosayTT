@@ -12,6 +12,18 @@
 	</ul>
 </div>
 <div class="form-group">
+	{{ Form::label('image', 'Illustration') }}
+	{{ 
+		Form::input('file', 'image', null,
+		array('class' => 'form-control', 'placeholder' => "Sélectionnez l'image principale de la news")); 
+	}}
+	<ul>
+		@foreach($errors->get('image') as $error)
+		<li class="label label-warning">{{ $error }}</li>
+		@endforeach
+	</ul>
+</div>
+<div class="form-group">
 	{{ Form::label('published_at', 'Date de publication (Maintenant par defaut)') }}
 	{{ 
 		Form::input('datetime-local', 'published_at', null,
