@@ -15,6 +15,8 @@ Route::pattern('title', '[A-Za-z0-9-]+');
 
 Route::get('/','HomeController@Home');
 
+Route::get('chat', 'ChatController@Home');
+
 Route::any('login', 'UsersController@LoginUser');
 Route::get('logout', 'UsersController@LogoutUser');
 
