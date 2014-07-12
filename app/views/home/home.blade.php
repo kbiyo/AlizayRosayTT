@@ -37,15 +37,14 @@
 <!-- load inks javascript files from the cdn -->
 <script type="text/javascript" src="{{asset('assets/ink-css/js/ink-all.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/ink-css/js/autoload.js')}}"></script>
-
 @stop
 
 @section('content')
 <section class="pub hide-all show-large show-xlarge xlarge-push-right large-push-right">
 	<div class="column-group gutters">
-	<a href="#" class="all-100 mrec"><img src="http://fakeimg.pl/300x250/" /></a>
-		<div class="all-50"><img src="http://fakeimg.pl/300x250/" /></div>
-		<div class="all-50"><img src="http://fakeimg.pl/300x250/" /></div>
+		<a href="#" class="all-100 mrec"><img src="{{asset('assets/images/image.jpg')}}" /></a>
+		<div class="all-50"><img src="{{asset('assets/images/image.jpg')}}" /></div>
+		<div class="all-50"><img src="{{asset('assets/images/image.jpg')}}" /></div>
 	</div>
 	<p>
 		"Red is not the right word," was the reply. "The plague was scarlet.  The whole face and body turned scarlet in an hour's time. Don't I  know? Didn't I see enough of it? And I am telling you it was scarlet  because&mdash;well, because it was scarlet. There is no other word for it."
@@ -58,63 +57,42 @@
 			<div class="xlarge-60 large-60 medium-50 small-100 tiny-100">
 				<div class="image">
 					<a href="news.html">
-						<img src="http://rsltt.fr/assets/img/news/resized/539d760cb2b11_coupes%20comite%202014%20002.JPG?1402828301" />
+						<img style="width:100%;" src="{{$news[0]->image}}" />
 					</a>
 				</div>
 			</div>
 			<div class="xlarge-40 large-40 medium-50 small-100 tiny-100">
 				<a href="#">
-					<h2>Le Neubourg était beaucoup plus fort</h2>
+					<h2>{{stripslashes($news[0]->title)}}</h2>
 				</a>
-				<p>Le vendredi 6 juin , notre équipe fanion se déplaçait au gymnase des Andelys pour y affronter l'équipe du Neubourg en finale de la coupe du comité "A"</p>
+				<p>{{stripslashes($news[0]->shortContent)}}</p>
 			</div>
 		</div>
 		<div class="column-group gutters">
+			@for($i=1;$i<=2;$i++)
 			<div class="all-50 small-100 tiny-100">
 				<figure class="cap-bot">
-					<img src="http://rsltt.fr/assets/img/news/resized/5378be64ac800_mondiaux_de_tennis_de_table_zhang_jike_champion_du_monde.jpg?1400421989">
+					<img src="{{$news[$i]->image}}">
 					<figcaption>
-						<h4>Fake Title</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, delectus, iste, fugiat saepe quis possimus necessitatibus quaerat fugit deserunt odit hic maxime illum amet corporis natus facilis odio. Accusamus, veritatis!</p>
+						<h4>{{stripslashes($news[$i]->title)}}</h4>
+						<p>{{stripslashes($news[$i]->shortContent)}}</p>
 					</figcaption>
 				</figure>
 			</div>
-			<div class="all-50 small-100 tiny-100">
-				<figure class="cap-bot">
-					<img src="http://rsltt.fr/assets/img/news/resized/53720abf9295f_DSC05415.JPG?1399982784">
-					<figcaption>
-						<h4>Fake Title</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, delectus, iste, fugiat saepe quis possimus necessitatibus quaerat fugit deserunt odit hic maxime illum amet corporis natus facilis odio. Accusamus, veritatis!</p>
-					</figcaption>
-				</figure>
-			</div>
+			@endfor
 		</div>
 		<div class="column-group gutters">
+			@for($i=3;$i<=5;$i++)
 			<div class="all-33 small-100 tiny-100">
 				<figure class="cap-bot">
-					<a href="#"><img src="http://rsltt.fr/assets/img/news/resized/53720abf9295f_DSC05415.JPG?1399982784">
-						<figcaption>
-							<h4>Fake Title</h4>
-						</a>
-					</figcaption>
-				</figure>
-			</div>
-			<div class="all-33 small-100 tiny-100">
-				<figure class="cap-bot">
-					<img src="http://rsltt.fr/assets/img/news/resized/53720abf9295f_DSC05415.JPG?1399982784">
+					<img src="{{$news[$i]->image}}">
 					<figcaption>
-						<h4>Fake Title</h4>
+						<h4>{{stripslashes($news[$i]->title)}}</h4>
+						<p>{{stripslashes($news[$i]->shortContent)}}</p>
 					</figcaption>
 				</figure>
 			</div>
-			<div class="all-33 small-100 tiny-100">
-				<figure class="cap-bot">
-					<img src="http://rsltt.fr/assets/img/news/resized/53720abf9295f_DSC05415.JPG?1399982784">
-					<figcaption>
-						<h4>Fake Title</h4>
-					</figcaption>
-				</figure>
-			</div>
+			@endfor
 		</div>
 	</div>
 </section>

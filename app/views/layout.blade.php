@@ -13,12 +13,23 @@
 <body>
 	<div class="ink-grid">
 		<header class="vertical-space">
-			<h1>AlizayRosayTT<small>BLAH BLAH</small></h1>
+			<h1>AlizayRosayTT<small>Connecté en tant que Kbiyo_Oh <a href="#">déconnexion</a></small></h1>
 			<nav class="ink-navigation">
 				<ul class="menu horizontal black">
 					<li class="active"><a href="#"><i class="fa fa-home fa-lg" style="color:white;"></i>&nbsp;Accueil</a></li>
-					<li><a href="#">item</a></li>
-					<li><a href="#">item</a></li>
+					@foreach(Menu::where('id_supmenu', '=', null)->get() as $menu)
+					<li>
+						<a href="{{substr($menu->link, 0,1)=='/'?url($menu->link):$menu->link}}">{{$menu->title}}</a>
+						@if(count($menu->SubMenus)>0)
+						<ul class="submenu">
+							@foreach($menu->SubMenus as $sub)
+							<li><a href="{{substr($sub->link, 0,1)=='/'?url($sub->link):$sub->link}}">{{$sub->title}}</a>
+							@endforeach
+						</ul>
+						@endif
+					</li>
+					@endforeach
+					<li><a href="{{url('/admin')}}">Administration</a></li>
 				</ul>
 			</nav>
 		</header>
