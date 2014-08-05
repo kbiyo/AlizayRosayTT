@@ -10,6 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+
+View::composer('front.header', function($view){
+    $view->with('menus', Menu::where('id_supmenu', '=', null)->get());
+});
+
 Route::pattern('id', '[0-9]+');
 Route::pattern('title', '[A-Za-z0-9-]+');
 
@@ -74,5 +79,6 @@ Route::group(array('before' => 'auth'), function()
 });
 
 Route::get('news/{id}/{title}', 'NewsController@ShowNews');
+Route::get('news', 'NewsController@Home');
 Route::post('editorUpload', 'ToolsController@FroalaUpload');
 

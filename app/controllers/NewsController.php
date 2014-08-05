@@ -2,16 +2,23 @@
 
 class NewsController extends BaseController {
 
+	protected $layout = 'layout';
+
     public function ShowNews($id, $title) {
-    	return 'ID = '.$id.'; TITLE = '.$title.'; STR = '.Str::slug('Un title complétement aléatoire!', '-').';';
+    	$news = News::find($id);
+
+    	if(Str::slug($news->title) == $title) {
+    		$this->layout->content = View::make('news/read')->with('news', $news);
+    	}
+    	else echo 'pascoucou';
     }
 
-    public function AddNews() {
+    public function Home() {
+    	$news = News::all();
 
-    }
-
-    public function EditNews($id) {
-    	return 'LA';
+    	$newsjh = News::orderBy('published_at', 'desc')->paginate(10);
+    	
+    	$this->layout->content = View::make('news/home')->with('listNews', $newsjh);
     }
 
 }
