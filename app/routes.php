@@ -17,6 +17,7 @@ View::composer('front.header', function($view){
 
 Route::pattern('id', '[0-9]+');
 Route::pattern('title', '[A-Za-z0-9-]+');
+Route::pattern('permaLink', '[A-Za-z0-9-]+');
 
 Route::get('/','HomeController@Home');
 
@@ -78,7 +79,9 @@ Route::group(array('before' => 'auth'), function()
 	});
 });
 
-Route::get('news/{id}/{title}', 'NewsController@ShowNews');
+Route::get('news/{id}/{title}', array('as' => 'ReadNews', 'uses' => 'NewsController@ShowNews'));
 Route::get('news', 'NewsController@Home');
 Route::post('editorUpload', 'ToolsController@FroalaUpload');
+
+Route::get('{permaLink}', array('as' => 'Perma', 'uses' => 'ToolsController@RedirectPermaLinks'));
 

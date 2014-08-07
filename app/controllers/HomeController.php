@@ -6,7 +6,7 @@ class HomeController extends BaseController {
 
 	public function home()
 	{
-		$news = News::all();
+		$news = News::orderBy('published_at', 'desc')->get();
 
 		//$this->layout->title = 'HomeController@Home';
 		$this->layout->content = View::make('home/home')

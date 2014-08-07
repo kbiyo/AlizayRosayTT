@@ -34,6 +34,27 @@ class ToolsController extends BaseController {
 		}
     }
 
+    public function RedirectPermaLinks($link)
+    {
+    	$perma = Permalink::where('link', '=',$link)->first();
+
+    	if($perma == null)
+    		return Redirect::to('404');
+
+    	$table = $perma->table;
+    	$id = $perma->table_id;
+
+    	$obj = $table::find($id);
+
+    	if($obj == null)
+    		return Redirect::to('404');
+
+    	$perma->count++;
+    	$perma->save();
+
+    	return Redirect::route('ReadNews', array($obj->id, Str::slug($obj->title)));
+    }
+
 }
 
 ?>

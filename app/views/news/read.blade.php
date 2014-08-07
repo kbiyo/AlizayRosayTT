@@ -49,7 +49,7 @@
 			</header>
 			<summary>{{$news->shortContent}}</summary>
 			<figure class="ink-image vertical-space">
-				<img src="{{$news->image}}" alt="{{$news->title}}">
+				<img src="{{asset($news->image)}}" alt="{{$news->title}}">
 				<figcaption class="dark over-bottom">
 					{{$news->shortContent}}
 				</figcaption>

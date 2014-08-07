@@ -55,6 +55,7 @@
 			<h2>{{stripslashes($news->title)}}</h2>
 		</a>
 		<p>{{stripslashes($news->shortContent)}}</p>
+		<p><small>Article posté le {{ $news->published_at }} par <a href="{{url('users', array($news->User->id, $news->User->surname))}}">{{$news->User->surname}}</a></small></p>
 	</div>
 </section>
 @endforeach

@@ -108,6 +108,10 @@ class DatabaseSeeder extends Seeder {
 
 		$this->command->info('Ajout des droits d\'administration pour les commentaires !');
 
+
+		Permalink::create(array('link' => 'yv7uxthd9c', 'table' => 'News', 'table_id' => '1'));
+
+
 		$this->command->info("\n" . '-----SEED TERMINE !-----');
 	}
 

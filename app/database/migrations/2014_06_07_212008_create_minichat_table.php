@@ -36,6 +36,7 @@ class CreateMinichatTable extends Migration {
 		{
 			$table->dropForeign('minichat_id_author_foreign');
 		});
+		Schema::dropIfExists('minichat');
 	}
 
 }
