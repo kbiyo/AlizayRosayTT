@@ -22,6 +22,7 @@ Route::pattern('permaLink', '[A-Za-z0-9-]+');
 Route::get('/','HomeController@Home');
 
 Route::get('chat', 'ChatController@Home');
+Route::get('licencies', 'LicenciesController@Home');
 
 Route::any('login', 'UsersController@LoginUser');
 Route::get('logout', 'UsersController@LogoutUser');
@@ -79,7 +80,7 @@ Route::group(array('before' => 'auth'), function()
 	});
 });
 
-Route::get('news/{id}/{title}', array('as' => 'ReadNews', 'uses' => 'NewsController@ShowNews'));
+Route::get('news/{id}/{title}.html', array('as' => 'ReadNews', 'uses' => 'NewsController@ShowNews'));
 Route::get('news', 'NewsController@Home');
 Route::post('editorUpload', 'ToolsController@FroalaUpload');
 

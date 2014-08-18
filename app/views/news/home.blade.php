@@ -45,13 +45,13 @@
 <section class="column-group gutters article">
 	<div class="all-30">
 		<div class="image">
-			<a href="{{url('news', array($news->id, Str::slug($news->title)))}}">
+			<a href="{{route('ReadNews', array($news->id, Str::slug($news->title)))}}">
 				<img style="width:100%;" src="{{$news->image}}" />
 			</a>
 		</div>
 	</div>
 	<div class="all-70">
-		<a href="{{url('news', array($news->id, Str::slug($news->title)))}}">
+		<a href="{{route('ReadNews', array($news->id, Str::slug($news->title)))}}">
 			<h2>{{stripslashes($news->title)}}</h2>
 		</a>
 		<p>{{stripslashes($news->shortContent)}}</p>

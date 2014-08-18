@@ -1,5 +1,5 @@
 @section('content')
-<section class="pub hide-all show-large show-xlarge xlarge-push-right large-push-right">
+<section class="pub xlarge-push-right large-push-right">
 	<div class="column-group gutters">
 		<a href="{{route('Perma', array('yv7uxthd9c'))}}" class="all-100 mrec" title="Accéder à l'article"><img src="{{asset('assets/images/affichePromo.jpg')}}" /></a>
 		<div class="all-50"><img src="{{asset('assets/images/logoRosay.png')}}" /></div>
@@ -24,7 +24,7 @@
 				<a href="{{route('ReadNews', array($news[0]->id, Str::slug($news[0]->title)))}}" title="Accéder à l'article">
 					<h2>{{stripslashes($news[0]->title)}}</h2>
 				</a>
-				<p>{{stripslashes($news[0]->shortContent)}}</p>
+				{{stripslashes($news[0]->shortContent)}}
 			</div>
 		</div>
 		<div class="column-group gutters">
@@ -38,7 +38,7 @@
 						<a href="{{route('ReadNews', array($news[$i]->id, Str::slug($news[$i]->title)))}}" title="Accéder à l'article">
 							<h4>{{stripslashes($news[$i]->title)}}</h4>
 						</a>
-						<p>{{stripslashes($news[$i]->shortContent)}}</p>
+						{{stripslashes($news[$i]->shortContent)}}
 					</figcaption>
 				</figure>
 			</div>
@@ -55,7 +55,7 @@
 						<a href="{{route('ReadNews', array($news[$i]->id, Str::slug($news[$i]->title)))}}" title="Accéder à l'article">
 							<h4>{{stripslashes($news[$i]->title)}}</h4>
 						</a>
-						<p>{{stripslashes($news[$i]->shortContent)}}</p>
+						{{stripslashes($news[$i]->shortContent)}}
 					</figcaption>
 				</figure>
 			</div>

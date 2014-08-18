@@ -7,7 +7,7 @@ class Club extends Eloquent {
 	public static $Rules = array(
 		'nom' => 'required',
 		'abreviation' => 'required|max:9',
-		'numero_affiliation' => 'required|unique:clubs',
+		'numero_affiliation' => 'unique:clubs',
 		);
 
 	public static $RulesMsg = array(

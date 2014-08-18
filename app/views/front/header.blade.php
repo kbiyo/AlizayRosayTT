@@ -1,5 +1,8 @@
 <header class="vertical-space">
-	<h1>AlizayRosayTT<small>Connecté en tant que Kbiyo_Oh <a href="#">déconnexion</a></small></h1>
+	<h1>
+		AlizayRosayTT
+		<!--<small>Connecté en tant que Kbiyo_Oh <a href="#">déconnexion</a></small>-->
+	</h1>
 	<nav class="ink-navigation">
 		<ul class="menu horizontal black">
 			<li class="active"><a href="{{url('/')}}"><i class="fa fa-home fa-lg" style="color:white;"></i>&nbsp;Accueil</a></li>
